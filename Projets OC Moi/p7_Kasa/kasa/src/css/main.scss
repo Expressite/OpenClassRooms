@@ -1,0 +1,45 @@
+@import "banner";
+@import "home";
+@import "variables";
+@import "collapse";
+@import "details";
+@import "notfound";
+@import "footer";
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body{
+    color: $first-color;
+    font-family: 'Montserrat';
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  &:link { text-decoration: none; color: $first-color;}
+  &:visited { text-decoration: none; color: $first-color;}
+  &:hover { text-decoration: none; color: $first-color;}
+  &:active { text-decoration: none; color: $first-color;}
+}
+
+.mainContainer {
+    margin: auto;
+    width: 95%;    
+    padding: 10px;
+  }
+
+.mainImage{
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+.flex-row-space-between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+}

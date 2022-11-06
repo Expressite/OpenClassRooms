@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  background-color: black;
+  color: white;
+  padding: 1em;
+  margin-top: 1em;
+}
+
+.footerLogo{
+  filter: brightness(0) invert(1);
+}

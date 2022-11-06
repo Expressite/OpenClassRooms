@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+    color: rgb(37, 65, 9);
+}
+
+.container{
+    display: flex;    
+    &_row{
+        flex-direction: row;
+    }
+
+    & div{
+        border-radius: 10px;
+        background-color: lemonchiffon;
+        padding: 1em;
+        margin: 1em;
+    }
+}

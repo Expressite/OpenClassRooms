@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+  color: rgb(37, 65, 9);
+}
+
+.container {
+  display: flex;
+}
+.container_row {
+  flex-direction: row;
+}
+.container div {
+  border-radius: 10px;
+  background-color: lemonchiffon;
+  padding: 1em;
+  margin: 1em;
+}/*# sourceMappingURL=vue.css.map */

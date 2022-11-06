@@ -1,0 +1,28 @@
+@mixin headers{    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    margin-left: 1rem;
+    }
+
+@mixin sections{
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.introduction{
+    background-color: yellowgreen;
+    @include sections;
+    &__header {
+        @include headers;
+    }
+}
+
+.example{
+    background-color: lightpink;
+    @include sections;
+    &__header {
+        @include headers;
+    }
+}

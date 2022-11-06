@@ -1,0 +1,64 @@
+$cd-bars: #15DEA5;
+$cd-bars-inv: #0E397F;
+$size: 3vh;
+$num-bars: 5;
+$anim-dur: 1000ms;
+$anim-delay: $anim-dur / $num-bars;
+
+.container {
+    display: flex;
+    justify-content: center;
+  }
+
+.load {
+    width: $size*10;
+    height: $size*7.5;
+    display: flex;
+    justify-content: space-evenly;
+    &__bar {
+        background-color: $cd-bars;
+        height: 100%;
+        width: $size;
+        //animation: bars $anim-dur backwards infinite;
+        //animation-direction: alternate-reverse;
+        animation: bars $anim-dur backwards infinite ease-in-out alternate;
+        @for $i from 1 through $num-bars {
+            &--#{$i} {
+                animation-delay: $anim-delay * $i;
+             }
+             &--#{$i}-inv {
+                animation-delay: $anim-delay * $i;
+                animation-direction: alternate-reverse;
+                background-color: $cd-bars-inv;
+            }
+        }
+    }
+}
+
+@keyframes bars {
+    0% {
+        transform: scaleY(0.5);
+    }
+    100% {
+        transform: scaleY(1.0);
+    }
+}
+
+.spin {
+    background-color: #15DEA5;
+    width: 30vh;
+    height: 30vh;
+    animation: spin 3s linear infinite paused;
+    &:hover {
+        animation-play-state: running;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

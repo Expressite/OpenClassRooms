@@ -1,0 +1,68 @@
+@use 'variables';
+
+#mainImage{
+    background-size: cover;
+    width: 100%;
+    height: 415px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.hostContainer{
+    align-items: center;
+}
+
+.hostImage{
+    border-radius: 50%;
+    width: 64px;
+}
+
+.hostName{
+    //word-break: break-all;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.tagContainer{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    & .tag{
+        background-color: variables.$first-color;
+        color: variables.$second-color;
+        border-radius: 10px;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        padding-left: 1em;
+        padding-right: 1em;
+        text-align: center;
+        margin-right: 1em;
+    }
+}
+
+.mainImageNavigation{
+    font-size: xx-large;
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    cursor: pointer;
+}
+
+.desc-equip-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+    #mainImage{
+        height: 255px;
+    }
+
+    .desc-equip-container{
+        flex-direction: column;
+    }
+}

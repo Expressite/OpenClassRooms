@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Mon Application Vue.js</title>
+  <script src="js/vue.2.6.14.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Ma première application Vue.js !</h1>
+    <h2>{{ message }}</h2>
+    <p>J'ai hâte de créer des applications incroyables !</p>
+  </div>  
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data:{
+          message: 'Première page avec Vue.js'
+      }
+    })
+  </script>
+</body>
+</html>

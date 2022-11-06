@@ -1,0 +1,8 @@
+créer les dossiers frontend et backend
+
+dans le dossier frontend : 
+git clone https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6.git
+npm install pour installer les dépendances
+
+dans le dossier backend :
+npm install mongoose

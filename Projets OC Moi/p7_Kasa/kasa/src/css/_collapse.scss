@@ -1,0 +1,29 @@
+@use 'variables';
+
+.collapseContent-parent{
+    background-color: #F6F6F6;
+}
+
+.collapseContent {
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.collapseContainer{
+    margin-top: 1em;
+    cursor: pointer;
+    width: 100%;    
+}
+
+.collapseHeader{
+    background-color: variables.$first-color;
+    color: variables.$second-color;
+    border-radius: 10px;
+    height: 2em;
+    line-height: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+}

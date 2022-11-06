@@ -1,0 +1,43 @@
+@use 'variables';
+
+.banner {    
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  & .bannerMenu{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    & .bannerMenuElement{
+      margin-left: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      &:link { text-decoration: none; }
+      &:visited { text-decoration: none; }
+      &:hover { text-decoration: none; }
+      &:active { text-decoration: none; }
+    }
+
+    & .bannerMenuElt{
+      color: variables.$first-color;
+      margin-left: 1em;
+      text-decoration: none;
+      &:link { text-decoration: none; color: variables.$first-color;}
+      &:visited { text-decoration: none; color: variables.$first-color;}
+      &:hover { text-decoration: none; color: variables.$first-color;}
+      &:active { text-decoration: none; color: variables.$first-color;}
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .banner{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+}

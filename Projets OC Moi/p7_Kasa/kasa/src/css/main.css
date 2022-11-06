@@ -1,0 +1,328 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+.banner {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.banner .bannerMenu {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.banner .bannerMenu .bannerMenuElement {
+  margin-left: 1em;
+  cursor: pointer;
+  text-decoration: none;
+}
+.banner .bannerMenu .bannerMenuElement:link {
+  text-decoration: none;
+}
+.banner .bannerMenu .bannerMenuElement:visited {
+  text-decoration: none;
+}
+.banner .bannerMenu .bannerMenuElement:hover {
+  text-decoration: none;
+}
+.banner .bannerMenu .bannerMenuElement:active {
+  text-decoration: none;
+}
+.banner .bannerMenu .bannerMenuElt {
+  color: #FF6060;
+  margin-left: 1em;
+  text-decoration: none;
+}
+.banner .bannerMenu .bannerMenuElt:link {
+  text-decoration: none;
+  color: #FF6060;
+}
+.banner .bannerMenu .bannerMenuElt:visited {
+  text-decoration: none;
+  color: #FF6060;
+}
+.banner .bannerMenu .bannerMenuElt:hover {
+  text-decoration: none;
+  color: #FF6060;
+}
+.banner .bannerMenu .bannerMenuElt:active {
+  text-decoration: none;
+  color: #FF6060;
+}
+
+@media screen and (max-width: 800px) {
+  .banner {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.mainHeader {
+  position: relative;
+  background-image: url("../images/home_picture.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  font-size: xx-large;
+  text-align: center;
+  color: white;
+  padding: 56px;
+}
+.mainHeader::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.mainHeader .textHeader {
+  position: relative;
+}
+
+.house-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.house-container .houseDetailLink {
+  width: 30%;
+  margin: 1rem;
+  text-decoration: none;
+}
+.house-container .houseDetailLink:link {
+  text-decoration: none;
+  color: #FF6060;
+}
+.house-container .houseDetailLink:visited {
+  text-decoration: none;
+  color: #FF6060;
+}
+.house-container .houseDetailLink:hover {
+  text-decoration: none;
+  color: #FF6060;
+}
+.house-container .houseDetailLink:active {
+  text-decoration: none;
+  color: #FF6060;
+}
+.house-container .house-cover {
+  height: 10rem;
+  border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  cursor: pointer;
+}
+.house-container .house-cover:hover {
+  border: 1px solid gray;
+  opacity: 75%;
+}
+.house-container .house-cover .house-cover-title {
+  align-self: flex-end;
+  background-color: rgba(128, 125, 128, 0.7);
+  margin: 0.5em;
+  padding: 0.2em;
+  border-radius: 5px;
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .mainHeader {
+    text-align: left;
+  }
+  .mainHeader .headerSecondPart::before {
+    content: "\a";
+    white-space: pre;
+  }
+  .house-container .houseDetailLink {
+    width: 100%;
+  }
+}
+.collapseContent-parent {
+  background-color: #F6F6F6;
+}
+
+.collapseContent {
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.collapseContainer {
+  margin-top: 1em;
+  cursor: pointer;
+  width: 100%;
+}
+
+.collapseHeader {
+  background-color: #FF6060;
+  color: white;
+  border-radius: 10px;
+  height: 2em;
+  line-height: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#mainImage {
+  background-size: cover;
+  width: 100%;
+  height: 415px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hostContainer {
+  align-items: center;
+}
+
+.hostImage {
+  border-radius: 50%;
+  width: 64px;
+}
+
+.hostName {
+  text-align: right;
+  margin-right: 1rem;
+}
+
+.tagContainer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.tagContainer .tag {
+  background-color: #FF6060;
+  color: white;
+  border-radius: 10px;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: center;
+  margin-right: 1em;
+}
+
+.mainImageNavigation {
+  font-size: xx-large;
+  color: white;
+  padding-left: 1em;
+  padding-right: 1em;
+  cursor: pointer;
+}
+
+.desc-equip-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+  #mainImage {
+    height: 255px;
+  }
+  .desc-equip-container {
+    flex-direction: column;
+  }
+}
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+.notFoundContainer .first {
+  font-weight: 700;
+  font-size: 128px;
+  margin-bottom: 0.5em;
+}
+.notFoundContainer .second {
+  font-weight: 500;
+  font-size: 48px;
+  margin-bottom: 1em;
+}
+
+@media screen and (max-width: 800px) {
+  .notFoundContainer .second {
+    font-size: 24px;
+  }
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 1em;
+  margin-top: 1em;
+}
+
+.footerLogo {
+  filter: brightness(0) invert(1);
+}
+
+body {
+  color: #FF6060;
+  font-family: "Montserrat";
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+  color: #FF6060;
+}
+a:visited {
+  text-decoration: none;
+  color: #FF6060;
+}
+a:hover {
+  text-decoration: none;
+  color: #FF6060;
+}
+a:active {
+  text-decoration: none;
+  color: #FF6060;
+}
+
+.mainContainer {
+  margin: auto;
+  width: 95%;
+  padding: 10px;
+}
+
+.mainImage {
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.flex-row-space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}/*# sourceMappingURL=main.css.map */

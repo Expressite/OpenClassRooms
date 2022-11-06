@@ -1,0 +1,11 @@
+.banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.banner .bannerMenu {
+  border: 1px solid;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}/*# sourceMappingURL=banner.css.map */
