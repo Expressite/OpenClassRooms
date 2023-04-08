@@ -1,0 +1,70 @@
+import { plantList } from "../datas/plantList";
+import PlantItem from "./PlantItem";
+import findIndexByAttribute from "../misc/utils";
+import "../styles/ShoppingList.css";
+
+function ShoppingList({ cart, updateCart }) {
+  console.log("test");
+  const categories = plantList.reduce(
+    (acc, plant) =>
+      acc.includes(plant.category) ? acc : acc.concat(plant.category),
+    []
+  );
+  function addToCart(name, price) {
+    //first check if element already exists
+    const idx = findIndexByAttribute(cart, "name", name);
+    const c = cart;
+    if (idx === -1) {
+      //element does'nt exist, add it
+      c.push({ name, price, amount: 1 });
+    } else {
+      //element exists, update quantity
+      c[idx].amount++;
+    }
+    updateCart([...c]);
+    console.log("display cart after update");
+    console.log(cart);
+  }
+  /*
+  function addToCart(name, price) {
+    const currentPlantSaved = cart.find((plant) => plant.name === name);
+    if (currentPlantSaved) {
+      const cartFilteredCurrentPlant = cart.filter(
+        (plant) => plant.name !== name
+      );
+      updateCart([
+        ...cartFilteredCurrentPlant,
+        { name, price, amount: currentPlantSaved.amount + 1 },
+      ]);
+    } else {
+      updateCart([...cart, { name, price, amount: 1 }]);
+    }
+  }
+*/
+  return (
+    <div className="lmj-shopping-list">
+      <ul>
+        {categories.map((cat) => (
+          <li key={cat}>{cat}</li>
+        ))}
+      </ul>
+      <ul className="lmj-plant-list">
+        {plantList.map(({ id, cover, name, water, light, price }) => (
+          <div key={id}>
+            <PlantItem
+              key={`plant_${id}`}
+              cover={cover}
+              name={name}
+              water={water}
+              light={light}
+              price={price}
+            />
+            <button onClick={() => addToCart(name, price)}>Ajouter</button>
+          </div>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default ShoppingList;

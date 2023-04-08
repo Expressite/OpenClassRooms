@@ -73,4 +73,14 @@ h1 {
 
 .oneCol {
   width: 100%;
+}
+
+.twoCols {
+  width: 50%;
+}
+
+@media screen and (max-width: 1024px) {
+  .redimWrap {
+    flex-wrap: wrap;
+  }
 }/*# sourceMappingURL=flex.css.map */

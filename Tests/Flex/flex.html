@@ -1,140 +1,165 @@
 <html>
-    <head>
-        <title>Flex</title>
-        <link rel="stylesheet" type="text/css" href="css/flex.css">
-    </head>
-    <h1>Flex box</h1>
-    <div class="keyword">
-        <h2>Direction</h2>                
-        <div class="container">
-            <div class="keywordElement">
-                <i>flex-direction: row</i>
-                <div class="container container_row">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
-            <div class="keywordElement">
-                <i>flex-direction: row-reverse</i>
-                <div class="container container_row_reverse">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
-            <div class="keywordElement">
-                <i>flex-direction: column</i>
-                <div class="container container_column">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
-            <div class="keywordElement">
-                <i>flex-direction: column-reverse</i>
-                <div class="container container_column_reverse">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
+  <head>
+    <title>Flex</title>
+    <link rel="stylesheet" type="text/css" href="css/flex.css" />
+  </head>
+  <h1>Flex box</h1>
+  <div class="keyword">
+    <h2>Direction</h2>
+    <div class="container">
+      <div class="keywordElement">
+        <i>flex-direction: row</i>
+        <div class="container container_row">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
         </div>
-    </div>
-    <div class="keyword">
-        <h2>Flex-wrap</h2>
-        <p>Ce mot-clef permet de forcer le retour à la ligne s'il n'y a plus assez de place pour positionner tous les éléments.</p>
-        <div class="container">
-            <div class="keywordElement">
-                <i>flex-wrap: wrap</i>
-                <div class="container container_wrap">
-                    <div class="box threeCols">Box 1</div>
-                    <div class="box threeCols">Box 2</div>
-                    <div class="box threeCols">Box 3</div>
-                </div>
-            </div>
+      </div>
+      <div class="keywordElement">
+        <i>flex-direction: row-reverse</i>
+        <div class="container container_row_reverse">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
         </div>
+      </div>
+      <div class="keywordElement">
+        <i>flex-direction: column</i>
+        <div class="container container_column">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
+        </div>
+      </div>
+      <div class="keywordElement">
+        <i>flex-direction: column-reverse</i>
+        <div class="container container_column_reverse">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
+        </div>
+      </div>
     </div>
-    <div class="keyword">
-        <h2>Justify-content</h2>
-        <p>Ce mot-clef permet de définir la justification du contenu.</p>
+  </div>
+  <div class="keyword">
+    <h2>Flex-wrap</h2>
+    <p>
+      Ce mot-clef permet de forcer le retour à la ligne s'il n'y a plus assez de
+      place pour positionner tous les éléments.
+    </p>
+    <div class="container">
+      <div class="keywordElement">
+        <i>flex-wrap: wrap</i>
         <div class="container container_wrap">
-            <div class="keywordElement threeCols">
-                <i>justify-content: flex-start</i>
-                <div class="container container_justify_content_flex_start">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
-            <div class="keywordElement threeCols">
-                <i>justify-content: flex-end</i>
-                <div class="container container_justify_content_flex_end">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
-            <div class="keywordElement threeCols">
-                <i>justify-content: center</i>
-                <div class="container container_justify_content_center">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
-            <div class="keywordElement threeCols">
-                <i>justify-content: space-between</i>
-                <div class="container container_justify_content_space_between">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
-            <div class="keywordElement threeCols">
-                <i>justify-content: space-around</i>
-                <div class="container container_justify_content_space_around">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
-            <div class="keywordElement threeCols">
-                <i>justify-content: space-evenly</i>
-                <div class="container container_justify_content_space_evenly">
-                    <div class="box">Box 1</div>
-                    <div class="box">Box 2</div>
-                    <div class="box">Box 3</div>
-                </div>
-            </div>
+          <div class="box threeCols">Box 1</div>
+          <div class="box threeCols">Box 2</div>
+          <div class="box threeCols">Box 3</div>
         </div>
+      </div>
     </div>
-    <div class="keyword">
-        <h2>Order</h2>
-        <p>Permet de modifier l'ordre des éléments.</p>
+  </div>
+  <div class="keyword">
+    <h2>Justify-content</h2>
+    <p>Ce mot-clef permet de définir la justification du contenu.</p>
+    <div class="container container_wrap">
+      <div class="keywordElement threeCols">
+        <i>justify-content: flex-start</i>
+        <div class="container container_justify_content_flex_start">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
+        </div>
+      </div>
+      <div class="keywordElement threeCols">
+        <i>justify-content: flex-end</i>
+        <div class="container container_justify_content_flex_end">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
+        </div>
+      </div>
+      <div class="keywordElement threeCols">
+        <i>justify-content: center</i>
+        <div class="container container_justify_content_center">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
+        </div>
+      </div>
+      <div class="keywordElement threeCols">
+        <i>justify-content: space-between</i>
+        <div class="container container_justify_content_space_between">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
+        </div>
+      </div>
+      <div class="keywordElement threeCols">
+        <i>justify-content: space-around</i>
+        <div class="container container_justify_content_space_around">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
+        </div>
+      </div>
+      <div class="keywordElement threeCols">
+        <i>justify-content: space-evenly</i>
+        <div class="container container_justify_content_space_evenly">
+          <div class="box">Box 1</div>
+          <div class="box">Box 2</div>
+          <div class="box">Box 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="keyword">
+    <h2>Order</h2>
+    <p>Permet de modifier l'ordre des éléments.</p>
+    <div class="container">
+      <div class="keywordElement">
+        <i>order: value</i>
+        <div class="container oneCol">
+          <div class="box" style="order: 1">Box 1<br />order : 1</div>
+          <div class="box" style="order: 0">Box 2<br />order : 0</div>
+          <div class="box" style="order: 2">Box 3<br />order : 2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="keyword">
+    <h2>Flex-grow</h2>
+    <p>Permet de modifier l'ordre des éléments.</p>
+    <div class="container">
+      <div class="keywordElement threeCols">
+        <i>flex-grow: value</i>
         <div class="container">
-            <div class="keywordElement">
-                <i>order: value</i>
-                <div class="container oneCol">
-                    <div class="box"style="order: 1;">Box 1<br>order : 1</div>
-                    <div class="box" style="order: 0;">Box 2<br>order : 0</div>
-                    <div class="box" style="order: 2;">Box 3<br>order : 2</div>
-                </div>
-            </div>
+          <div class="box" style="flex-grow: 1">Box 1<br />flex-grow : 1</div>
+          <div class="box" style="flex-grow: 4">Box 2<br />flex-grow : 2</div>
+          <div class="box" style="flex-grow: 1">Box 3<br />flex-grow : 1</div>
         </div>
+      </div>
     </div>
-    <div class="keyword">
-        <h2>Flex-grow</h2>
-        <p>Permet de modifier l'ordre des éléments.</p>
-        <div class="container">
-            <div class="keywordElement threeCols">
-                <i>flex-grow: value</i>
-                <div class="container">
-                    <div class="box"style="flex-grow : 1;">Box 1<br>flex-grow : 1</div>
-                    <div class="box" style="flex-grow : 4;">Box 2<br>flex-grow : 2</div>
-                    <div class="box" style="flex-grow : 1;">Box 3<br>flex-grow : 1</div>
-                </div>
-            </div>
+  </div>
+  <div class="keyword">
+    <h2>Box imbriquées</h2>
+    <p>
+      Positionnement sur deux lignes si la taille de l'écran est trop petite.
+      Réduisez la largeur de l'écran à moins de 800 pixels pour voir la
+      différence.
+    </p>
+    <div class="container">
+      <div class="keywordElement oneCol">
+        <div class="container oneCol redimWrap">
+          <div class="box" style="width: 100%">Box 1</div>
+          <div
+            class="box container container_justify_content_flex_end"
+            style="width: 100%"
+          >
+            <div class="box" style="width: 100%">Menu 1</div>
+            <div class="box" style="width: 100%">Menu 2</div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </html>

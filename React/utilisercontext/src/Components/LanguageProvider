@@ -1,0 +1,21 @@
+import React, { createContext, useState } from "react";
+
+const LanguageContext = createContext({
+  language: "fr",
+  setLanguage: () => {},
+});
+
+const LanguageProvider = ({ children }) => {
+  const [language, setLanguage] = useState("fr");
+  const value = {
+    language,
+    setLanguage,
+  };
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export default LanguageProvider;

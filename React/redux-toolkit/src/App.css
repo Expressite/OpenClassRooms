@@ -1,0 +1,21 @@
+.menuContainer {
+  display: flex;
+  /*justify-content: space-between;*/
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menuContainer a {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.menuContainer a:hover {
+  color: #ff6347;
+}
