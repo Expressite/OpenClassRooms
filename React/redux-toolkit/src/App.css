@@ -1,3 +1,12 @@
+body.theme-dark {
+  background-color: rgb(1, 39, 31);
+  color: white;
+}
+
+body.theme-light {
+  background-color: aquamarine;
+}
+
 .menuContainer {
   display: flex;
   /*justify-content: space-between;*/
@@ -18,4 +27,29 @@
 
 .menuContainer a:hover {
   color: #ff6347;
+}
+
+.footer {
+  background-color: #b1f5b1;
+  padding: 20px;
+  color: #333;
+  text-align: left;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.themeWrapper.theme-light {
+  background-color: aquamarine;
+}
+
+.themeWrapper.theme-dark {
+  background-color: rgb(1, 39, 31);
+  color: white;
+}
+
+#newTaskWindow {
+  visibility: hidden;
 }

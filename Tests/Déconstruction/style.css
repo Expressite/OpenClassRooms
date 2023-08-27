@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.container div {
+  flex: 1;
+}
+
+.code {
+  background-color: lightgray;
+  color: darkgreen;
+  padding: 1em;
+  margin-left: 1em;
+  margin-right: 10em;
+  border-radius: 0.5em;
+}
+
+.desc {
+  /*margin-right: 10em;*/
+}
+
+.withoutDestructuring {
+  background-color: lightyellow;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
+}
+
+.withDestructuring {
+  background-color: lightgreen;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
+}
+
+.context {
+  background-color: lightgray;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
+}

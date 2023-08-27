@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <script src="destructuring.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Déconstruction</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="context" class="context">
+        <h1>Comprendre la déstructuration</h1>
+        <p class="desc">
+          La destructuration permet d'adresser directement un attribut d'un
+          objet comme paramètre d'une fonction.
+        </p>
+        <div>
+          <p>Prenons comme exemple l'objet suivant :</p>
+          <p class="code">
+            user = {<br />
+            &nbsp;&nbsp;&nbsp;profile: "admin",<br />
+            &nbsp;&nbsp;&nbsp;password="mKYLSKnR#mQz6rYTPnjahAj5!4yH"<br />
+            }<br />
+          </p>
+
+          <p class="desc">
+            Avec ou sans déstructuration, on veut appeler une fonction qui
+            affichera le profil de l'utilisateur en lui passant l'objet comme
+            paramètre.
+          </p>
+        </div>
+      </div>
+      <div id="withoutDestructuring" class="withoutDestructuring">
+        <h1>Sans déstructuration</h1>
+        <div>
+          <p class="desc">
+            La fonction suivante reçoit l'objet en paramètre et il est possible
+            d'utiliser n'importe quel attribut de cet objet avec le point (ou
+            éventuellement les crochets).
+          </p>
+          <p class="code">
+            function displayUserProfile(u){<br />
+            &nbsp;&nbsp;&nbsp;console.log(u.profile);<br />
+            }
+          </p>
+
+          <p>L'appel de la fonction se fera de la manière suivante</p>
+          <p class="code">displayUserProfile(user);</p>
+        </div>
+      </div>
+      <div id="withDestructuration" class="withDestructuring">
+        <h1>Avec déstructuration</h1>
+        <div>
+          <p class="desc">
+            La fonction suivante reçoit l'objet en paramètre mais on va
+            directement utiliser l'attribut <i>profile</i> de l'objet
+          </p>
+          <p class="code">
+            function displayUserProfileDestructured({profile}){<br />
+            &nbsp;&nbsp;&nbsp;console.log(profile);<br />
+            }
+          </p>
+
+          <p>L'appel de la fonction se fera de la manière suivante</p>
+          <p class="code">displayUserProfileDestructured(user);</p>
+          <p class="desc">
+            La déconstruction raccourcit un peu le code mais empêche la fonction
+            d'utiliser d'autres attributs de l'objet.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="context">
+        <h1>Comprendre l'opérateur spread ...</h1>
+        <p class="desc">
+          Disons que nous voulons copier cet objet dans une nouvelle variable.
+        </p>
+      </div>
+      <div id="withoutSpreadOperator" class="withoutDestructuring">
+        <h1>Avant l'apparition de l'opérateur spread</h1>
+        <p class="desc">Ecrire ceci serait une erreur fatale :</p>
+        <p class="code">var userCopy = user;</p>
+        <p class="desc">
+          En effet, l'opérateur égal n'affecte la valeur située à droite dans la
+          variable que si cette variable est un type de base (int, boolean,
+          String...). Lorsqu'il s'agit d'un objet, l'opérateur égal se contente
+          de créer une référence à l'objet cité à droite.
+        </p>
+        <p class="desc">
+          Dans cet exemple, user et userCopy pointent tous deux vers le même
+          espace mémoire. Avant l'arrivée de l'opérateur spread (les fameux
+          trois petits points), il aurait fallu écrire ceci :
+        </p>
+        <p class="code">
+          userCopy = {<br />
+          &nbsp;&nbsp;&nbsp;profile: user.profile,<br />
+          &nbsp;&nbsp;&nbsp;password:user.password<br />
+          }<br />
+        </p>
+        <p class="desc">
+          Cela se compliquerait vite si l'objet contenait de nombreuses
+          propriétés !
+        </p>
+      </div>
+      <div id="withSpreadOperator" class="withDestructuring">
+        <h1>Avec l'opérateur spread</h1>
+        <p class="desc">Avec l'opérateur spread, on écrit simplement ceci :</p>
+        <p class="code">
+          userCopy = {<br />
+          &nbsp;&nbsp;&nbsp;...user<br />
+          }<br />
+        </p>
+        <p class="desc">
+          Disons maintenant que nous voulons faire une copie puis changer le nom
+          du profil :
+        </p>
+        <p class="code">
+          userCopy = {<br />
+          &nbsp;&nbsp;&nbsp;...user,<br />&nbsp;&nbsp;&nbsp;profile: "Pierre"<br />
+          }<br />
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
