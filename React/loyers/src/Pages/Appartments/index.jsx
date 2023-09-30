@@ -27,6 +27,7 @@ import {
 
 function Appartments() {
   let [token, setToken] = useState();
+  const [dataFetched, setDataFetched] = useState(false);
   let [dialogMode, setDialogMode] = useState("create");
   const [error, setError] = useState(null);
   const [open, setOpen] = useState(false);
@@ -41,14 +42,14 @@ function Appartments() {
   const [formValues, setFormValues] = useState({
     name: "",
     street: "",
-    zipCode: "",
+    zipcode: "",
     city: "",
-    stair: "",
+    stair: "",    
   });
   const displayedLabels = {
     name: "Nom",
     street: "Rue",
-    zipCode: "CP",
+    zipcode: "CP",
     city: "Ville",
     stair: "Etage",
   };
@@ -63,10 +64,12 @@ function Appartments() {
       const data = await fetchData(API_URL, requestOptions);
       const newData = data.map((item) => ({
         ...item,
-        id: item._id,
+        id: item._id ? item._id : item.id,
+        //id: item._id,
       }));
       setData(newData);
       setLoading(false);
+      setDataFetched(true);
     } catch (error) {
       console.log(error);
       if (error.response && error.response.status === 401) {
@@ -75,19 +78,22 @@ function Appartments() {
         setError(error);
         setLoading(false);
         handleError(error);
+        setDataFetched(true);
       }
     }
   };
 
   useEffect(() => {
-    fetchApiData(); // Appel initial pour récupérer les données
-  }, []);
+    if (!dataFetched) {
+      fetchApiData(); // Appel initial pour récupérer les données
+    }
+  }, [dataFetched]);
 
   const resetForm = () => {
     setFormValues({
       name: "",
       street: "",
-      zipCode: "",
+      zipcode: "",
       city: "",
       stair: "",
     });
@@ -137,8 +143,8 @@ function Appartments() {
   const handleTextFieldChange = (key) => (event) => {
     let updatedValue = event.target.value;
 
-    // Vérifier si la clé est "Stair" ou "ZipCode"
-    if (key === "stair" || key === "zipCode") {
+    // Vérifier si la clé est "Stair" ou "zipcode"
+    if (key === "stair" || key === "zipcode") {
       // Remplacer tous les caractères non numériques par une chaîne vide
       updatedValue = updatedValue.replace(/\D/g, "");
     }
@@ -153,15 +159,6 @@ function Appartments() {
    * Close create/edit dialog
    */
   const handleCloseDialog = () => {
-    /*
-    const values = Object.entries(textFieldsRefs.current).reduce(
-      (acc, [key, ref]) => {
-        acc[key] = ref.value;
-        return acc;
-      },
-      {}
-    );
-    */
     setOpen(false);
     resetForm();
   };
@@ -194,7 +191,8 @@ function Appartments() {
 
   const handleSaveDialog = () => {
     if (validateForm()) {
-      if (dialogMode === "edit") {
+      formValues.user_id = localStorage.getItem("userId");
+      if (dialogMode === "edit") {        
         updateData(API_URL, formValues._id, formValues, getToken())
           .then((response) => {
             fetchApiData();
@@ -221,7 +219,7 @@ function Appartments() {
     const errors = {
       name: "",
       street: "",
-      zipCode: "",
+      zipcode: "",
       city: "",
       stair: "",
     };
@@ -273,7 +271,7 @@ function Appartments() {
       headerClassName: "defaultFont",
     },
     {
-      field: "zipCode",
+      field: "zipcode",
       headerName: "CP",
       width: 200,
       type: Number,
@@ -323,7 +321,7 @@ function Appartments() {
   }
   return (
     <div>
-      <ErrorMessage message={errorMessage} timeout={timeOutDuration} />
+      <ErrorMessage message={errorMessage} timeout={timeOutDuration} type="error"/>
       <div>Appartements</div>
       {loading ? (
         <p>Chargement...</p>
@@ -337,6 +335,7 @@ function Appartments() {
         <DataGrid
           localeText={frFR.components.MuiDataGrid.defaultProps.localeText}
           rows={data}
+          getRowId={(row) => row.id}
           columns={columns}
           getRowClassName={getRowClassName}
           editMode="cell"

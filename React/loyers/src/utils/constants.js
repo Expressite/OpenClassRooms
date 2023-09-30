@@ -1,5 +1,9 @@
 //dev
-export const API_URL = "http://localhost:8000/api/";
+//export const API_URL = "http://localhost:8000/api/";
+//dev avec PHP
+export const API_URL = "http://loyersws/api/";
+//prod OVH
+//export const API_URL = "https://loyersws.expressite.fr/api/";
 //test en accès local au serveur
 //export const API_URL = "http://192.168.0.196:8000/api/";
 //prod

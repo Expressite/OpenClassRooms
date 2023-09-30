@@ -61,7 +61,8 @@ function Rents() {
       const data = await fetchData(API_URL, requestOptions);
       const newData = data.map((item) => ({
         ...item,
-        id: item._id,
+        id: item._id ? item._id : item.id,
+        //id: item._id,
       }));
       setData(newData);
       setLoading(false);
@@ -157,15 +158,15 @@ function Rents() {
    */
   const handleConfirmDialog = () => {
     if (validateForm()) {
-      console.log("form is valid");
       selectionModel.forEach((element) => {
         const selectedData = data.filter((el) => el._id === element);
         if (selectedData.length > 0) {
           const dataToUpdate = { ...selectedData[0] }; //create an object copy
-          console.log("modifier cet élémment");
-          console.log(dataToUpdate);
+          dataToUpdate.user_id = localStorage.getItem("userId");
           dataToUpdate.datePaid = stringToDate(formValues.datePaid);
           dataToUpdate.status = constants.RENT_STATUS_PAID;
+          dataToUpdate.timeZone =
+            Intl.DateTimeFormat().resolvedOptions().timeZone;
           updateData(API_URL, dataToUpdate._id, dataToUpdate, getToken())
             .then((response) => {
               fetchApiData();
@@ -279,54 +280,101 @@ function Rents() {
       headerClassName: "defaultFont",
       width: 200,
       renderCell: (params) => {
-        const sendEmail = () => {
-          //build body message
-          const dt = stringToDate(params.row.date);
-          const options = { month: "long", year: "numeric" };
-          const dateFormatter = new Intl.DateTimeFormat(
-            navigator.language,
-            options
-          );
+        // const sendEmail = () => {
+        //   //build body message
+        //   const dt = stringToDate(params.row.date);
+        //   const options = { month: "long", year: "numeric" };
+        //   const dateFormatter = new Intl.DateTimeFormat(
+        //     navigator.language,
+        //     options
+        //   );
 
-          const stair = params.row.contract.appartment.hasOwnProperty("stair")
-            ? `${params.row.contract.appartment.stair}${
-                params.row.contract.appartment.stair === 1 ? "er" : "ème"
-              } étage`
-            : "";
-          const body = constants.mailBody
-            .replace(/%month/g, () => dateFormatter.format(dt))
-            .replace(/%appStreet/g, () => params.row.contract.appartment.street)
-            .replace(/%appStair/g, () => stair)
-            .replace(
-              /%appZipCode/g,
-              () => params.row.contract.appartment.zipCode
-            )
-            .replace(/%appCity/g, () => params.row.contract.appartment.city)
-            .replace(/%link/g, () => params.row.receipt);
+        //   const stair = params.row.contract.appartment.hasOwnProperty("stair")
+        //     ? `${params.row.contract.appartment.stair}${
+        //         params.row.contract.appartment.stair === 1 ? "er" : "ème"
+        //       } étage`
+        //     : "";
+        //   const body = constants.mailBody
+        //     .replace(/%month/g, () => dateFormatter.format(dt))
+        //     .replace(/%appStreet/g, () => params.row.contract.appartment.street)
+        //     .replace(/%appStair/g, () => stair)
+        //     .replace(
+        //       /%appZipCode/g,
+        //       () => params.row.contract.appartment.zipCode
+        //     )
+        //     .replace(/%appCity/g, () => params.row.contract.appartment.city)
+        //     .replace(/%link/g, () => params.row.receipt);
 
-          const mailtoLink = `mailto:${params.row.contract.tenant.email}?subject=${constants.mailTitle}&body=${body}`;
-          window.location.href = mailtoLink;
+        //   const mailtoLink = `mailto:${params.row.contract.tenant.email}?subject=${constants.mailTitle}&body=${body}`;
+        //   window.location.href = mailtoLink;
+        // };
+
+        const getPDF = () => {
+          const receipt = params.row.receipt;
+          const token = getToken();
+          fetch(receipt, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+            .then((response) => {
+              if (response.status === 200) {
+                // Convertir la réponse en blob
+                return response.blob();
+              } else {
+                // Gérer les erreurs ici
+                console.error("Erreur lors de la récupération du fichier PDF.");
+                return null;
+              }
+            })
+            .then((blob) => {
+              if (blob) {
+                // Créer un objet URL à partir du blob
+                const blobUrl = window.URL.createObjectURL(blob);
+
+                // Créer un lien <a> pour le téléchargement
+                const a = document.createElement("a");
+                a.href = blobUrl;
+                a.download = "receipt.pdf"; // Nom du fichier téléchargé
+                a.style.display = "none";
+
+                // Ajouter le lien <a> à la page
+                document.body.appendChild(a);
+
+                // Déclencher un clic sur le lien pour lancer le téléchargement
+                a.click();
+
+                // Supprimer le lien <a> de la page
+                document.body.removeChild(a);
+
+                // Révoquer l'URL de l'objet blob après le téléchargement
+                window.URL.revokeObjectURL(blobUrl);
+              }
+            })
+            .catch((error) => {
+              // Gérer les erreurs réseau ici
+              console.error("Erreur réseau :", error);
+            });
         };
-        const receipt = params.row.receipt;
+
         if (params.row.status === constants.RENT_STATUS_PAID) {
           return (
             <>
               <IconButton
                 aria-label="Quittance au format PDF"
                 style={{ color: "yellow" }}
-                onClick={() => {
-                  window.open(receipt, "_blank");
-                }}
+                onClick={getPDF}
               >
                 <PictureAsPdfIcon />
               </IconButton>
-              <IconButton
+              {/* <IconButton
                 style={{ color: "yellow" }}
                 aria-label="Envoi par courriel"
                 onClick={sendEmail}
               >
                 <MailIcon></MailIcon>
-              </IconButton>
+              </IconButton> */}
             </>
           );
         }
@@ -363,7 +411,7 @@ function Rents() {
   }
   return (
     <div style={{ width: "100%" }}>
-      <ErrorMessage message={errorMessage} timeout={timeOutDuration} />
+      <ErrorMessage message={errorMessage} timeout={timeOutDuration} type="error"/>
       <h1>Loyers</h1>
       {loading ? (
         <p>Chargement...</p>

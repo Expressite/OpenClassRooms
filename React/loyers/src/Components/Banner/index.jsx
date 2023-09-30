@@ -1,5 +1,10 @@
 import logo from "../../Images/key_100x100.png";
 import { Link } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import EuroIcon from "@mui/icons-material/Euro";
+import PersonIcon from "@mui/icons-material/Person";
+import DescriptionIcon from "@mui/icons-material/Description";
 
 function Banner() {
   return (
@@ -27,16 +32,19 @@ function Banner() {
       </div>
       <nav className="bannerMenu">
         <Link to="/" className="bannerMenuElt">
-          Loyers
+          <EuroIcon></EuroIcon>&nbsp;Loyers
         </Link>
         <Link to="/Appartments" className="bannerMenuElt">
-          Appartements
+          <ApartmentIcon></ApartmentIcon>&nbsp;Appartements
         </Link>
         <Link to="/Tenants" className="bannerMenuElt">
-          Locataires
+          <PersonIcon></PersonIcon>&nbsp;Locataires
         </Link>
         <Link to="/Contracts" className="bannerMenuElt">
-          Contrats
+          <DescriptionIcon></DescriptionIcon>&nbsp;Contrats
+        </Link>
+        <Link to="/Logout" className="bannerMenuElt">
+          <LogoutIcon></LogoutIcon>
         </Link>
       </nav>
     </div>

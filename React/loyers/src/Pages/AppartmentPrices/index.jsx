@@ -66,7 +66,8 @@ function AppartementPrices() {
       const data = await fetchData(API_URL_READ, requestOptions);
       const newData = data.map((item) => ({
         ...item,
-        id: item._id,
+        id: item._id ? item._id : item.id,
+        //id: item._id,
       }));
       setData(newData);
       setLoading(false);
@@ -189,6 +190,7 @@ function AppartementPrices() {
   const handleSaveDialog = () => {
     if (validateForm()) {
       formValues.appartment = id;
+      formValues.user_id = localStorage.getItem("userId");
       const formToSend = {
         ...formValues,
         appartment: id,

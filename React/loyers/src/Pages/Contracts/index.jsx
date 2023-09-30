@@ -87,7 +87,8 @@ function Contracts() {
       const data = await fetchData(API_URL_CONTRACTS, requestOptions);
       const newData = data.map((item) => ({
         ...item,
-        id: item._id,
+        id: item._id ? item._id : item.id,
+        //id: item._id,
       }));
       setData(newData);
       //fetch tenants
@@ -277,6 +278,7 @@ function Contracts() {
         if (selectedData.length > 0) {
           const dataToUpdate = selectedData[0];
           dataToUpdate.dateTo = stringToDate(formEndValues.dateTo);
+          dataToUpdate.user_id = localStorage.getItem("userId");
           updateData(
             API_URL_CONTRACTS,
             dataToUpdate._id,
@@ -331,6 +333,7 @@ function Contracts() {
     if (validateForm()) {
       formToSend.dateFrom = stringToDate(formValues.dateFrom);
       formToSend.dateTo = stringToDate(formValues.dateTo);
+      formToSend.user_id = localStorage.getItem("userId");
       if (dialogMode === "edit") {
         updateData(API_URL_CONTRACTS, formToSend._id, formToSend, getToken())
           .then((response) => {

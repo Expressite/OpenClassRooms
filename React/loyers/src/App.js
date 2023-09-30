@@ -7,6 +7,8 @@ import Banner from "./Components/Banner";
 //import Footer from "./Footer";
 import Appartments from "./Pages/Appartments";
 import Login from "./Pages/Login";
+import Signin from "./Pages/Signin";
+import Logout from "./Pages/Logout";
 import Rents from "./Pages/Rents";
 import Tenants from "./Pages/Tenants";
 import Contracts from "./Pages/Contracts";
@@ -41,6 +43,8 @@ function App() {
               <Route path="/Tenants" element={<Tenants />} />
               <Route path="/Contracts" element={<Contracts />} />
               <Route path="/Login" element={<Login setToken={setToken} />} />
+              <Route path="/Logout" element={<Logout setToken={setToken} />} />
+              <Route path="/Signin" element={<Signin setToken={setToken} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

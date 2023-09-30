@@ -42,14 +42,14 @@ function Tenants() {
   const [formValues, setFormValues] = useState({
     name: "",
     street: "",
-    zipCode: "",
+    zipcode: "",
     city: "",
     mail: "",
   });
   const displayedLabels = {
     name: "Nom",
     street: "Rue",
-    zipCode: "CP",
+    zipcode: "CP",
     city: "Ville",
     email: "Email",
   };
@@ -64,7 +64,8 @@ function Tenants() {
       const data = await fetchData(API_URL, requestOptions);
       const newData = data.map((item) => ({
         ...item,
-        id: item._id,
+        id: item._id ? item._id : item.id,
+        //id: item._id,
       }));
       setData(newData);
       setLoading(false);
@@ -88,7 +89,7 @@ function Tenants() {
     setFormValues({
       name: "",
       street: "",
-      zipCode: "",
+      zipcode: "",
       city: "",
       email: "",
     });
@@ -129,8 +130,8 @@ function Tenants() {
   const handleTextFieldChange = (key) => (event) => {
     let updatedValue = event.target.value;
 
-    // For zipCode
-    if (key === "zipCode") {
+    // For zipcode
+    if (key === "zipcode") {
       // replace all non-numeric characters by nothing
       updatedValue = updatedValue.replace(/\D/g, "");
     }
@@ -186,6 +187,7 @@ function Tenants() {
 
   const handleSaveDialog = () => {
     if (validateForm()) {
+      formValues.user_id = localStorage.getItem("userId");
       if (dialogMode === "edit") {
         updateData(API_URL, formValues._id, formValues, getToken())
           .then((response) => {
@@ -213,7 +215,7 @@ function Tenants() {
     const errors = {
       name: "",
       street: "",
-      zipCode: "",
+      zipcode: "",
       city: "",
       email: "",
     };
@@ -270,7 +272,7 @@ function Tenants() {
       headerClassName: "defaultFont",
     },
     {
-      field: "zipCode",
+      field: "zipcode",
       headerName: "CP",
       width: 100,
       type: Number,

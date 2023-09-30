@@ -24,7 +24,11 @@ export function removeToken() {
  */
 export const fetchData = async (url, options) => {
   try {
-    const response = await axios(url, options);
+    const response = await axios(url, options, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
     return response.data;
   } catch (error) {
     const errorData = { ...error };

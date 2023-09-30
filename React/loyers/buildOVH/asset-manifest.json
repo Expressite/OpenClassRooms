@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5b78d2f2.css",
+    "main.js": "/static/js/main.d3da2ecf.js",
+    "static/js/787.e6ed4e37.chunk.js": "/static/js/787.e6ed4e37.chunk.js",
+    "static/media/key_100x100.png": "/static/media/key_100x100.e603a956c240983718a3.png",
+    "static/media/amstrad_cpc464.ttf": "/static/media/amstrad_cpc464.ee6ba1eec21736ffa14d.ttf",
+    "index.html": "/index.html",
+    "main.5b78d2f2.css.map": "/static/css/main.5b78d2f2.css.map",
+    "main.d3da2ecf.js.map": "/static/js/main.d3da2ecf.js.map",
+    "787.e6ed4e37.chunk.js.map": "/static/js/787.e6ed4e37.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5b78d2f2.css",
+    "static/js/main.d3da2ecf.js"
+  ]
+}

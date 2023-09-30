@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const ErrorMessage = ({ message, timeout = 3000 }) => {
+const ErrorMessage = ({ message, timeout = 3000, type = "error" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [key, setKey] = useState(0);
 
@@ -30,7 +30,7 @@ const ErrorMessage = ({ message, timeout = 3000 }) => {
   return isVisible ? (
     <div
       key={key}
-      className={`fade-out-message ${!isVisible ? "fade-out" : ""}`}
+      className={`fade-out-message ${!isVisible ? "fade-out" : ""} ${type === "error" ? "error-message" : "info-message"}`}
     >
       <span>{message}</span>
     </div>
